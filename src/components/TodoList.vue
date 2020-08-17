@@ -17,10 +17,10 @@ export default {
     name: "TodoList",
     props: ["todoItems"],
     methods: {
-        removeOneItem: function (todoItem, index) {
+        removeOneItem(todoItem, index) {
             this.$emit("removeOneItem", todoItem, index);
         },
-        toggleOneItem: function (todoItem, index) {
+        toggleOneItem(todoItem, index) {
             this.$emit("toggleOneItem", todoItem, index);
         },
     },
