@@ -1,13 +1,16 @@
 <template>
     <div id="app">
         <todo-header></todo-header>
-        <todo-input v-on:addOneItem="addOneItem"></todo-input>
+        <!-- <todo-input v-on:addOneItem="addOneItem"></todo-input>
         <todo-list
             v-bind:todoItems="todoItems"
             v-on:removeOneItem="removeOneItem"
             v-on:toggleOneItem="toggleOneItem"
         ></todo-list>
-        <todo-footer v-on:clearAllitem="clearAllitem"></todo-footer>
+        <todo-footer v-on:clearAllitem="clearAllitem"></todo-footer>-->
+        <todo-input></todo-input>
+        <todo-list></todo-list>
+        <todo-footer></todo-footer>
     </div>
 </template>
 
@@ -19,47 +22,35 @@ import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
     name: "App",
-    data() {
-        return {
-            todoItems: [],
-        };
-    },
+    // data() {
+    //     return {
+    //         todoItems: [],
+    //     };
+    // },
     methods: {
-        addOneItem(todoItem) {
-            let obj = {
-                completed: false,
-                item: todoItem,
-            };
-            localStorage.setItem(todoItem, JSON.stringify(obj));
-            this.todoItems.push(obj);
-        },
-        removeOneItem(todoItem, index) {
-            localStorage.removeItem(todoItem.item);
-            this.todoItems.splice(index, 1); // index에 1개의 요소를 지움
-        },
-        toggleOneItem(todoItem, index) {
-            //todoItem.completed = !todoItem.completed; 내린 props 값을 다시 올려 받았기 때문에 안티 패턴이다
-            this.todoItems[index].completed = !this.todoItems[index].completed; // index로 접근하여 개선
-
-            // localStorage를 갱신하는 부분
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-        },
-        clearAllitem() {
-            localStorage.clear();
-            this.todoItems = [];
-        },
-    },
-    created() {
-        if (localStorage.length > 0) {
-            for (let i = 0; i < localStorage.length; ++i) {
-                if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-                    this.todoItems.push(
-                        JSON.parse(localStorage.getItem(localStorage.key(i)))
-                    );
-                }
-            }
-        }
+        // addOneItem(todoItem) {
+        //     let obj = {
+        //         completed: false,
+        //         item: todoItem,
+        //     };
+        //     localStorage.setItem(todoItem, JSON.stringify(obj));
+        //     this.todoItems.push(obj);
+        // },
+        // removeOneItem(todoItem, index) {
+        //     localStorage.removeItem(todoItem.item);
+        //     this.todoItems.splice(index, 1); // index에 1개의 요소를 지움
+        // },
+        // toggleOneItem(todoItem, index) {
+        //     //todoItem.completed = !todoItem.completed; 내린 props 값을 다시 올려 받았기 때문에 안티 패턴이다
+        //     this.todoItems[index].completed = !this.todoItems[index].completed; // index로 접근하여 개선
+        //     // localStorage를 갱신하는 부분
+        //     localStorage.removeItem(todoItem.item);
+        //     localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+        // },
+        // clearAllitem() {
+        //     localStorage.clear();
+        //     this.todoItems = [];
+        // },
     },
     components: {
         // 컴포넌트 태그명 : 컴포넌트 내용

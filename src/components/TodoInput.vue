@@ -30,7 +30,8 @@ export default {
         addOneItem() {
             // 저장하는 로작
             if (this.newTodoItem !== "") {
-                this.$emit("addOneItem", this.newTodoItem);
+                // this.$emit("addOneItem", this.newTodoItem);
+                this.$store.commit("addOneItem", this.newTodoItem);
                 this.clearInput();
             } else {
                 this.showModal = !this.showModal;
@@ -41,7 +42,9 @@ export default {
         },
     },
     components: {
-        Modal: Modal,
+        // Enhanced Object Literals
+        Modal,
+        // Modal: Modal,
     },
 };
 </script>
