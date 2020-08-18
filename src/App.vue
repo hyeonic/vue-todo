@@ -52,6 +52,17 @@ export default {
         //     this.todoItems = [];
         // },
     },
+    // created() {
+    //     if (localStorage.length > 0) {
+    //         for (var i = 0; i < localStorage.length; i++) {
+    //             if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+    //                 this.todoItems.push(
+    //                     JSON.parse(localStorage.getItem(localStorage.key(i)))
+    //                 );
+    //             }
+    //         }
+    //     }
+    // },
     components: {
         // 컴포넌트 태그명 : 컴포넌트 내용
         "todo-header": TodoHeader,

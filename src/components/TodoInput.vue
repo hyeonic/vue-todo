@@ -30,8 +30,8 @@ export default {
         addOneItem() {
             // 저장하는 로작
             if (this.newTodoItem !== "") {
-                // this.$emit("addOneItem", this.newTodoItem);
-                this.$store.commit("addOneItem", this.newTodoItem);
+                const item = this.newTodoItem.trim();
+                this.$store.commit("addOneItem", item);
                 this.clearInput();
             } else {
                 this.showModal = !this.showModal;
